@@ -19,7 +19,7 @@ from (select table_schema, table_name,partition_name,TABLE_ROWS, rank() over (pa
         group by table_schema, table_name,partition_name,TABLE_ROWS\
         )a\
 where rn <=3;" | sed "s/'/\'/;s/\t/\",\"/g;s/^/\"/;s/$/\"/;s/\n//g"`
-
+# sed : convert blank to comma
 echo "${result}"
 }
 
